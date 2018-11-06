@@ -1,0 +1,22 @@
+.image {
+  height: 10rem;
+  width: 15rem;
+}
+.buy-button {
+  height: 3vh;
+}
+.food-box {
+  justify-content:center;
+  background-image:linear-gradient(to bottom right, black, gray)
+}
+.content {
+  color:white;
+}
+main{
+  width:100%;
+}
+.side-bar {
+  align-items: center;
+  background-color: black;
+  color:white;
+}

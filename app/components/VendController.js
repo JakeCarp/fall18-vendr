@@ -17,20 +17,24 @@ function drawProducts() {
   let template = ''
   //builds template from each prodcut into template string
   for (let i = 0; i < products.length; i++) {
-    const product = products[i];
+    let product = products[i];
     if (product.quantity > 0) {
       template += `
-        <div>
-          <p>${product.name} - ${product.price}</p>
-          <button onclick="app.controllers.vendController.vendItem(${i})">BUY</button>
+        <div class="col-6">
+        <img class="image" src="${product.img}">
+          <p class="content">${product.name} - $${product.price}</p>
+          <button class="buy-button" onclick="app.controllers.vendController.vendItem(${i})">BUY</button>
         </div>
       `
     }
   }
   //adds template string to table
-  document.getElementById('products').innerHTML = template
+  document.getElementById('products').innerHTML += template
 }
-
+function drawToInv(snack) {
+  document.getElementById('inventory').innerHTML += `
+  <p class="content">${snack.name}</p>`
+}
 //PUBLIC
 export default class VendController {
   constructor() {
@@ -48,6 +52,14 @@ export default class VendController {
   vendItem(productIndex) {
     //attempts to process the vend item
     let item = vendService.vendItem(productIndex)
-    //you will want to check that item exists and then draw it to the screen
+    if (item) {
+      drawTotal(item.currentTransaction)
+      //you will want to check that item exists and then draw it to the screen
+      drawToInv(item)
+    }
+  }
+  return() {
+    let total = vendService.return()
+    drawTotal(total)
   }
 }

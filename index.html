@@ -6,14 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vendr</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
 </head>
 
 <body>
-  <h1>CHANGE: <span id='change'>0.00</span></h1>
-  <button onclick="app.controllers.vendController.addQuarter()">Add Quarter</button>
-  <div id="products">
+  <main class="container-fluid">
+    <div class="row">
 
-  </div>
+    </div>
+    <div class="row">
+      <div class="col-1 side-bar d-flex">
+        <div class="invenUI">
+          <div class="bottom-box">INVENTORY:
+            <div class="content" id="inventory">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-10 food-box d-flex">
+        <div class="row" id="products">
+        </div>
+      </div>
+      <div class="col-1 side-bar d-flex">
+        <div class="changeUi">
+          <h2>Change: <span id="change">0.00</span></h2>
+          <button onclick="app.controllers.vendController.addQuarter()">Add Quarter</button>
+          <button onclick="app.controllers.vendController.return()">Return</button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
 
   <!-- Links app from main.js -->
   <script src="app/main.js" type="module"></script>
